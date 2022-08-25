@@ -1,5 +1,5 @@
 # calculator
-JavaScript, HTML and CSS practice calculator project.
+JavaScript, HTML and CSS practice calculator project. </br>
 To fix:
 * result number overflow 
 * round decimal numbers so they don;t overflow
