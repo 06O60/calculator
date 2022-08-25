@@ -68,7 +68,7 @@ button:active {
 
 .first {
     flex: 2;
-    border-radius: 20%;
+    border-radius: 10%;
     background-color: #000;
     font-family:  "Helvetica light", Helvetica,Arial, sans-serif;
     font-size: 400%;
