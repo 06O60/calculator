@@ -39,20 +39,23 @@ function count()
         resInt = parseInt(result) + parseInt(secondNum);
     else
         resInt = parseInt(result) - parseInt(secondNum);
-        
+
+    lastAction = "n";
     return resInt.toString();
 }
-/*function actionClicked (action)
+function actionClicked (action)
 {
     console.log("Action clicked!");
-    if(secondNum !== "0")
+    if(lastAction != "n")
     {
         result = count();
-    }        
+        shownResult.innerHTML = result;
+    }
+    else 
+        shownResult.innerHTML = "0";     
     secondNum = "0";
-    shownResult.innerHTML = secondNum;
     lastAction = action;
-}*/
+}
 
 function numClicked (number)
 {
@@ -100,3 +103,4 @@ function eraseClicked ()
         shownResult.innerHTML = secondNum;
     }
 }
+
