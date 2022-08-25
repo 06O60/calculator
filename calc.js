@@ -15,9 +15,10 @@ document.querySelector('.calculator-body').addEventListener('click', function(ev
         eraseClicked();
     else if(clickedClass === "action equality")
     {
-        console.log("clicked");
-        result = count();
+        count();
+        lastAction = "=";
     }
+
 });
 
 function count()
@@ -25,29 +26,35 @@ function count()
     let resInt;
     if(lastAction === "÷")
         resInt = parseFloat(result) / parseFloat(secondNum);
-    else if(lastAction == "×")
+    else if(lastAction === "×")
         resInt = parseFloat(result) * parseFloat(secondNum);
-    else if(lastAction == "+")
+    else if(lastAction === "+")
         resInt = parseFloat(result) + parseFloat(secondNum);
-    else
+    else if(lastAction === "-")
         resInt = parseFloat(result) - parseFloat(secondNum);
 
-    shownResult.innerHTML = resInt.toString();
+    result = resInt.toString();
+    shownResult.innerHTML = result;
     secondNum = "0";
     lastAction = "n";
-    return resInt.toString();
 }
 function actionClicked (action)
 {
     if(lastAction != "n")
-        result = count();
-
+        count();
     secondNum = "0";
     lastAction = action;
 }
 
 function numClicked (number)
 {
+    if(lastAction == "=")
+    {
+        result = "0";
+        secondNum = "0";
+        lastAction = "n";
+    }
+
     if(lastAction === "n")
     {
         if(result === "0")
