@@ -16,7 +16,7 @@ document.querySelector('.calculator-body').addEventListener('click', function(ev
     else if(clickedClass === "action equality")
     {
         console.log("clicked");
-        count();
+        result = count();
     }
 });
 
