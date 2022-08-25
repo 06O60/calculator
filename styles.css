@@ -31,6 +31,7 @@ body{
 
 
 button {
+    cursor: pointer;
     border:none;
     margin: 4px;
     width:25%;
