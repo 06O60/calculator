@@ -28,12 +28,21 @@ let liczba = 9;
 xd = liczba.toString();
 console.log(typeof(xd), xd);
 
-/*function count()
+function count()
 {
-    let resInt = parseInt(result) + parseInt(secondNum);
+    let resInt;
+    if(lastAction === "÷")
+        resInt = parseInt(result) / parseInt(secondNum);
+    else if(lastAction == "×")
+        resInt = parseInt(result) * parseInt(secondNum);
+    else if(lastAction == "+")
+        resInt = parseInt(result) + parseInt(secondNum);
+    else
+        resInt = parseInt(result) - parseInt(secondNum);
+        
     return resInt.toString();
 }
-function actionClicked (action)
+/*function actionClicked (action)
 {
     console.log("Action clicked!");
     if(secondNum !== "0")
