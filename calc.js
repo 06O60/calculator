@@ -6,60 +6,48 @@ let shownResult = document.querySelector('.result');
 document.querySelector('.calculator-body').addEventListener('click', function(event) {
     const clickedClass = event.target.className;
     if(clickedClass === "action")
-    {
         actionClicked(event.target.innerText);
-    }
     else if(clickedClass === "num")
-    {
         numClicked( event.target.innerText )
-    }
     else if(clickedClass === "clear")
-    {
         clearClicked();
-    }
     else if(clickedClass === "erase")
-    {
         eraseClicked();
+    else if(clickedClass === "action equality")
+    {
+        console.log("clicked");
+        count();
     }
 });
-
-let xd = "lol";
-let liczba = 9;
-xd = liczba.toString();
-console.log(typeof(xd), xd);
 
 function count()
 {
     let resInt;
     if(lastAction === "÷")
-        resInt = parseInt(result) / parseInt(secondNum);
+        resInt = parseFloat(result) / parseFloat(secondNum);
     else if(lastAction == "×")
-        resInt = parseInt(result) * parseInt(secondNum);
+        resInt = parseFloat(result) * parseFloat(secondNum);
     else if(lastAction == "+")
-        resInt = parseInt(result) + parseInt(secondNum);
+        resInt = parseFloat(result) + parseFloat(secondNum);
     else
-        resInt = parseInt(result) - parseInt(secondNum);
+        resInt = parseFloat(result) - parseFloat(secondNum);
 
+    shownResult.innerHTML = resInt.toString();
+    secondNum = "0";
     lastAction = "n";
     return resInt.toString();
 }
 function actionClicked (action)
 {
-    console.log("Action clicked!");
     if(lastAction != "n")
-    {
         result = count();
-        shownResult.innerHTML = result;
-    }
-    else 
-        shownResult.innerHTML = "0";     
+
     secondNum = "0";
     lastAction = action;
 }
 
 function numClicked (number)
 {
-    console.log("Number clicked!");
     if(lastAction === "n")
     {
         if(result === "0")
@@ -78,7 +66,6 @@ function numClicked (number)
 
 function clearClicked ()
 {
-    console.log("Clear clicked!");
     result = "0";
     secondNum = "0";
     lastAction = "n";  
